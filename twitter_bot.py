@@ -91,7 +91,7 @@ def tweet_avertir_min(compteur_en_baisse,prix_en_baisse):
     auth = tweepy.OAuthHandler(api_key,api_secrets)
     auth.set_access_token(access_token,access_secret)
 
-    api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, compression=True)
+    api = tweepy.API(auth, wait_on_rate_limit=True)
 
     status = "Le cours est en baisse depuis",compteur_en_baisse,"jours ! Il est actuellement à",prix_en_baisse,"dollars."
     api.update_status(status=status)
@@ -109,7 +109,7 @@ def tweet_avertir_max(compteur_en_hausse,prix_en_hausse):
     auth = tweepy.OAuthHandler(api_key,api_secrets)
     auth.set_access_token(access_token,access_secret)
 
-    api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, compression=True)
+    api = tweepy.API(auth, wait_on_rate_limit=True)
 
     status = "Le cours est en baisse depuis",compteur_en_hausse,"jours ! Il est actuellement à",prix_en_hausse,"dollars."
     api.update_status(status=status)
